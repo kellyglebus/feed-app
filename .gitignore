@@ -1,0 +1,20 @@
+# Python compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.env
+
+# Virtual environment
+venv/
+env/
+
+# SQLite database
+*.db
+
+# Flask instance folder (if you accidentally have one)
+instance/
+
+# VSCode / editor specific
+.vscode/
+.idea/
