@@ -14,6 +14,8 @@ export default function Feed({ initialInterests }) {
     const [loading, setLoading] = useState(false);
     
     const observer = useRef();
+
+    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     
     const lastItemRef = useCallback(node => {
       if (loading) return;
@@ -30,7 +32,7 @@ export default function Feed({ initialInterests }) {
   
     // Fetch topics on load
     useEffect(() => {
-      fetch("/topics")
+      fetch(`${API_URL}/topics`)
         .then(res => res.json())
         .then(data => setTopics(data))
         .catch(err => console.error("Topics fetch error:", err));
@@ -38,7 +40,7 @@ export default function Feed({ initialInterests }) {
   
     // Fetch topic counts (new!)
     useEffect(() => {
-      fetch("/topic-counts")
+      fetch(`${API_URL}/topic-counts`)
         .then(res => res.json())
         .then(data => setTopicCounts(data))
         .catch(err => console.error("Topic counts fetch error:", err));
@@ -49,7 +51,7 @@ export default function Feed({ initialInterests }) {
         if (searchQuery) {
             setLoading(true);
             
-            const url = `/feed?page=${page}&per_page=10&search=${encodeURIComponent(searchQuery)}`;
+            const url = `${API_URL}/feed?page=${page}&per_page=10&search=${encodeURIComponent(searchQuery)}`;
             
             fetch(url)
               .then(res => res.json())
@@ -76,7 +78,7 @@ export default function Feed({ initialInterests }) {
       setLoading(true);
       
       const topicFilter = selectedTopics.join(',');
-      const url = `/feed?page=${page}&per_page=10${topicFilter ? `&topics=${topicFilter}` : ''}`;
+      const url = `${API_URL}/feed?page=${page}&per_page=10${topicFilter ? `&topics=${topicFilter}` : ''}`;
       
       fetch(url)
         .then(res => res.json())

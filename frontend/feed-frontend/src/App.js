@@ -7,6 +7,8 @@ function App() {
   const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
   const [userInterests, setUserInterests] = useState([]);
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
   // Fetch topics for onboarding
   useEffect(() => {
     // Check if user has already completed onboarding
@@ -17,7 +19,7 @@ function App() {
     }
 
     // Fetch topics from backend
-    fetch("/topics")
+    fetch(`${API_URL}/topics`)
       .then(res => res.json())
       .then(data => setTopics(data))
       .catch(err => console.error("Topics fetch error:", err));
