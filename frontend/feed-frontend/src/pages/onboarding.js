@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TopicButton from '../components/TopicButton';
 
 export default function Onboarding({ topics, onComplete }) {
   const [selectedTopics, setSelectedTopics] = useState([]);
@@ -40,30 +41,15 @@ export default function Onboarding({ topics, onComplete }) {
         </p>
 
         <div style={{ marginBottom: "30px" }}>
-          {topics.map(topic => (
-            <button
-              key={topic}
-              onClick={() => toggleTopic(topic)}
-              style={{
-                display: "block",
-                width: "100%",
-                padding: "15px",
-                margin: "10px 0",
-                border: selectedTopics.includes(topic) ? "2px solid #007bff" : "2px solid #ddd",
-                backgroundColor: selectedTopics.includes(topic) ? "#e7f3ff" : "white",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "16px",
-                textAlign: "left",
-                transition: "all 0.2s"
-              }}
-            >
-              <span style={{ marginRight: "10px" }}>
-                {selectedTopics.includes(topic) ? "✓" : "○"}
-              </span>
-              {topic}
-            </button>
-          ))}
+        {topics.map(topic => (
+          <TopicButton
+            key={topic}
+            topic={topic}
+            isSelected={selectedTopics.includes(topic)}
+            count={null}  // No count on onboarding
+            onClick={() => toggleTopic(topic)}
+          />
+        ))}
         </div>
 
         <button
