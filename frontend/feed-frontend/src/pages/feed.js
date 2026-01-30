@@ -2,8 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import Sidebar from '../components/Sidebar';
 import SearchBar from '../components/SearchBar';
 import FeedItem from '../components/FeedItem'; 
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+import API_URL from "./config"; 
 
 export default function Feed({ initialInterests }) {
     const [topics, setTopics] = useState([]);

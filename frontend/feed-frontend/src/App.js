@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Onboarding from "./pages/onboarding";
 import Feed from "./pages/feed";
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+import API_URL from "./config"; 
 
 function App() {
   const [topics, setTopics] = useState([]);
