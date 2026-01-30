@@ -25,7 +25,7 @@ GovFeed provides a Twitter/Ground News-style interface for discovering relevant 
 - **Multiple Data Sources**: Aggregates contracts, grants, jobs, and small business opportunities
 - **Component Architecture**: Clean, maintainable React code
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 - React (functional components + hooks)
@@ -43,7 +43,7 @@ GovFeed provides a Twitter/Ground News-style interface for discovering relevant 
 - **USAJobs** (mock data) - Federal employment opportunities
 - **SBA** (mock data) - Small business resources
 
-## 📁 Project Structure
+## Project Structure
 ```
 project/
 ├── backend/
@@ -68,7 +68,7 @@ project/
     └── package.json
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.8+
