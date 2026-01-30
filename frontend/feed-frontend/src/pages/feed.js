@@ -3,6 +3,8 @@ import Sidebar from '../components/Sidebar';
 import SearchBar from '../components/SearchBar';
 import FeedItem from '../components/FeedItem'; 
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 export default function Feed({ initialInterests }) {
     const [topics, setTopics] = useState([]);
     const [feed, setFeed] = useState([]);
@@ -14,8 +16,6 @@ export default function Feed({ initialInterests }) {
     const [loading, setLoading] = useState(false);
     
     const observer = useRef();
-
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
     
     const lastItemRef = useCallback(node => {
       if (loading) return;

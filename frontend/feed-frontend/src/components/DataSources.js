@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DataSources({ }) {
+export default function DataSources() {
   return (
     <div style={{ 
         marginTop: "30px", 

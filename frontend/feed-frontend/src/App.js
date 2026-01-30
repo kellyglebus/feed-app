@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import Onboarding from "./pages/onboarding";
 import Feed from "./pages/feed";
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function App() {
   const [topics, setTopics] = useState([]);
   const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false);
   const [userInterests, setUserInterests] = useState([]);
-
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   // Fetch topics for onboarding
   useEffect(() => {
